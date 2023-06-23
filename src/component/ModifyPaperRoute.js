@@ -38,7 +38,7 @@ const handlePaperRoute = (email , user_dat) =>
 
 
     var url = "https://ieeexploreapi.ieee.org/api/v1/search/articles?&queryText="+query+"&apikey=eqaptr84qtan7n3smvtzyjrj";
-    var url = "http://api.springernature.com/meta/v2/json?q="+query+"&api_key=d58bd47ac6328407a906ed67b0c97992"
+    var url = "https://api.springernature.com/meta/v2/json?q="+query+"&api_key=d58bd47ac6328407a906ed67b0c97992"
     console.log(url)
     fetch( url ).then(
         async (response) => {
@@ -61,6 +61,8 @@ const handlePaperRoute = (email , user_dat) =>
                 target: email,
                 reply_to: "cenentury0941@gmail.com"
             };
+
+            console.log(templateParams)
             
             emailjs.send("service_66e0nhm", "template_z75mucg", templateParams, "q7o0mCeuC9aUNq1Jq");            
 
@@ -267,7 +269,7 @@ function ModifyPaperRoute()
 
                     <div>
                     <h3 className="SmallHeading Dark NoShadow NoMargin">Updated PaperRoute!</h3>
-                    <h4 className="SubHeading Dark NoShadow">Check your inbox for the updated PaperRoute delivery! We'll send the next update in a week's time!</h4>
+                    <h4 className="SubHeading Dark NoShadow">Check your inbox for the updated PaperRoute delivery! We'll send the next update in a week's time! Please check the spam folder too just in case!</h4>
                     </div>
                     
                 ) : (

@@ -88,6 +88,10 @@
     background-color: white;
 }
 
+.BotBG{
+    background-image: url("./images/bot_bg.png");
+}
+
 .Invoke{    
     background-image: url("./images/Invoke.png");
     background-size: contain;
@@ -175,7 +179,7 @@
     background-color: white;
 }
 
-.Button{
+.Button{    
     display: flex;
     height: 8vh;
     aspect-ratio: 3.9;

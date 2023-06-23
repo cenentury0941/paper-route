@@ -7,6 +7,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import emailjs from '@emailjs/browser';
 import { json } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 var email_ref = "";
 var user_dat = undefined;
@@ -27,34 +28,47 @@ var complete = false;
 const handlePaperRoute = (email , user_dat) =>
 {
 
-    // var query = "";
+   
+    var query = "";
 
-    // for( var key in user_dat )
-    // {
-    //     if( user_dat[key] == 1 )
-    //     {
-    //         query += key + " OR ";
-    //     }
-    // }
-    
-    // const params = {
-    //     engine: "google_scholar",
-    //     q: query + "Science Springer IEEE"
-    // };
-    
-    // search.json(params, (data) => {
+    for( var key in user_dat )
+    {
+        if( user_dat[key] == 1 )
+        {
+            query += key + "%20";
+        }
+    }
 
-    //     var templateParams = {
-    //         message : data,
-    //         target: email,
-    //         reply_to: "cenentury0941@gmail.com"
-    //     };
-        
-    //     emailjs.send("service_66e0nhm", "template_z75mucg", templateParams, "q7o0mCeuC9aUNq1Jq");
-        
-    // });
-    
 
+    var url = "https://ieeexploreapi.ieee.org/api/v1/search/articles?&queryText="+query+"&apikey=eqaptr84qtan7n3smvtzyjrj";
+    var url = "https://api.springernature.com/meta/v2/json?q="+query+"&api_key=d58bd47ac6328407a906ed67b0c97992"
+    console.log(url)
+    fetch( url ).then(
+        async (response) => {
+
+            var data = await response.json();
+            data = data["records"]
+            console.log("IEEE" + data);
+
+            var send = "";
+
+            for( var i = 0 ; i < 5 ; i++ )
+            {
+                send += data[i].title + "\n\n";
+                send += data[i].abstract + "\n\n";
+                send += data[i].url[0].value + "\n\n\n-----------------------\n\n\n";
+            }
+
+            var templateParams = {
+                message : send,
+                target: email,
+                reply_to: "cenentury0941@gmail.com"
+            };
+            
+            emailjs.send("service_66e0nhm", "template_z75mucg", templateParams, "q7o0mCeuC9aUNq1Jq");            
+
+        }
+    )
 
 
 }
@@ -97,6 +111,7 @@ for( var key in tags )
 
 function CreatePaperRoute()
 {
+    const navigate = useNavigate();
 
     const [ stage , setStage ] = useState(0)
     const [ email , setEmail ] = useState("")
@@ -262,7 +277,7 @@ function CreatePaperRoute()
 
                     <div>
                     <h3 className="SmallHeading Dark NoShadow NoMargin">Registered PaperRoute!</h3>
-                    <h4 className="SubHeading Dark NoShadow">Check your inbox for the first PaperRoute delivery! We'll send the next update in a week's time!</h4>
+                    <h4 className="SubHeading Dark NoShadow">Check your inbox for the first PaperRoute delivery! We'll send the next update in a week's time! Please check the spam folder too just in case!</h4>
                     </div>
                     
                 ) : (
@@ -276,6 +291,7 @@ function CreatePaperRoute()
                 
                 
                 ) }
+                <div className="Button SmallButton UnsetPosition" onClick={ () => { navigate("/paperroute/") } } ><h1>Back to Dashboard</h1></div>
                 
             </div>
             

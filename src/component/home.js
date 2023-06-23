@@ -19,7 +19,7 @@ function Home()
             
             </div>
             <div className="Container About"></div>
-            <div className="Container Blank"></div>
+            <div className="Container BotBG"></div>
             <div className="Container HLD"></div>
             
         </div>
