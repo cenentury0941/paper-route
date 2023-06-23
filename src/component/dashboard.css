@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+}
+
+.DashBoard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.HorizontalSpan{
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    width: 100%;
+    align-items: start;
+    justify-content: center;
+}
+
+.HorizontalAlign{
+    flex-direction: row;
+}
+
+.HideOverflow{
+    overflow: visible;
+    transition-duration: 1s;
+    transform: translateY(0);
+}
+
+.ShowEmail{
+    transform: translateY(0);
+}
+
+.ShowTags{
+    transform: translateY(100%);
+}
+
+.ShowRegister{
+    transform: translateY(200%);
+}
+
+.SpanContainer{
+    display: flex;
+    flex-direction:column;
+    height: 100%;
+    width: 39%;
+    align-items: center;
+    justify-content: start;
+    gap:5%;
+}
+
+.SidePane{
+    display: flex;
+    flex-direction: column;
+    background-color: #282c34;
+    height: 100%;
+    width: 25%;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap:10%;
+}
+
+.SidePane > .Button{
+    background-color: #282c34;
+    border: 3px solid white;
+    color: white;
+}
+
+.SidePane > .Inactive{
+    border: 3px solid #424242;
+    color: #424242; 
+}
+
+.SidePane > .Current{
+    border: 3px solid greenyellow;
+    color: greenyellow;
+}
+
+.SidePane > .Done{
+    border: 3px solid white;
+    color: white;
+}
+
+.MainBody{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 100%;
+    width: 75%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.emailIconSmall{
+    position: relative;
+    height: 15%;
+    width: 15%;
+    text-shadow: 5px 5px #39393939;
+    font-weight: 500;
+    background-image: url("./images/email.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 5%;
+}
+
+.Heading{
+    position: relative;
+    left: 0;
+    top: 0;
+    font-size: 7vh;
+    text-shadow: 5px 5px #39393939;
+    font-weight: 500;
+}
+
+.SmallHeading{
+    position: relative;
+    left: 0;
+    top: 0;
+    font-size: 5vh;
+    text-shadow: 5px 5px #39393939;
+    font-weight: 500;
+    margin-top: 10%;
+}
+
+
+.SubHeading{
+    position: relative;
+    font-size: 3vh;
+    text-shadow: 5px 5px #39393939;
+    text-align: left;
+    font-weight: 100;
+    text-align: center;
+}
+
+
+.DashButton{
+    display: flex;
+    height: 8vh;
+    aspect-ratio: 3.9;
+    background-color: #282c34;
+    border: 2px solid white;
+    border-radius: 10vh;
+    color: #fff;
+    font-size: 39%;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.1s;
+    user-select: none;
+}
+
+.DashButton:hover{
+    color: #393939;
+    background-color: white;
+}
+
+.DashButton:active{
+    background-color: #696969;
+}
+
+.AlignCenter{
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+}
+
+.Dark{
+    color: #282c34;
+}
+
+.NoShadow{
+    text-shadow: unset;
+}
+
+.NoMargin{
+    margin: 0;
+}
+
+.UnsetPosition{
+    left: unset;
+    right: unset;
+    top: unset;
+    bottom: unset;
+    position: relative;
+    margin: 0;
+}
+
+.EmailInput{
+    height: 5%;
+    width: 50%;
+    font-size: 80%;
+    text-align: center;
+    color: #282c34;
+}
+
+.TagsContainer
+{
+    display: flex;
+    width: 75%;
+    height: fit-content;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+}
+
+.Tag_Unset{
+    display: flex;
+    height: 5vh;
+    width: fit-content;
+    padding-left: 1%;
+    padding-right: 1%;
+    min-width: 10vh;
+    background-color: white;
+    border: 2px solid #282c34;
+    border-radius: 1vh;
+    color: #282c34;
+    font-size: 60%;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.1s;
+    user-select: none;
+}
+
+.Tag_Unset_Light{
+    display: flex;
+    height: 5vh;
+    width: fit-content;
+    padding-left: 1%;
+    padding-right: 1%;
+    min-width: 10vh;
+    background-color: white;
+    border: 2px solid #999;
+    border-radius: 1vh;
+    color: #999;
+    font-size: 60%;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.1s;
+    user-select: none;
+}
+
+.Tag_Unset:hover {
+    transform: scale(1.05);
+}
+
+.Tag_Set{
+    display: flex;
+    height: 5vh;
+    width: fit-content;
+    padding-left: 1%;
+    padding-right: 1%;
+    min-width: 10vh;
+    background-color: green;
+    border: 2px solid #282c34;
+    border-radius: 1vh;
+    color: #fff;
+    font-size: 60%;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.1s;
+    user-select: none;
+}
+
+
+.Tag_Set:hover {
+    transform: scale(1.05);
+}
+
+.ErrorBox{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #10101069;
+}
+
+.ErrorMessage{
+    height: 50%;
+    width: 39%;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px black;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5%;
+}
