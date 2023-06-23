@@ -1,3 +1,6 @@
+![alt text](https://github.com/cenentury0941/paper-route/blob/main/src/component/images/thumb.png)
+
+
 # PaperRoute
 Paper route is a simple webservice which accepts the users email ID as well as their interests and sends SMTP based mail updates to the user of relevant research papers published to Springer or IEEE on a regular basis.
 
@@ -5,6 +8,7 @@ Paper route is a simple webservice which accepts the users email ID as well as t
 - Provide us your email ID
 - Determine your interests
 - register your PaperRoute
+![alt text](https://github.com/cenentury0941/paper-route/blob/main/src/component/images/steps_bg.png)
 
 ## PaperRoute makes use of an openAI based assistive chatbot which will help users in picking the relevant tags as per their interests if they so choose
 ![alt text](https://github.com/cenentury0941/paper-route/blob/main/src/component/images/bot_bg.png)
