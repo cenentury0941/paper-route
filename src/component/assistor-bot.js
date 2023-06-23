@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef , React } from "react";
-import "./verify-bot.css";
+import "./assistor-bot.css";
 
 import { useNavigate } from "react-router-dom";
 import SendIcon from "./images/send.png";
@@ -100,7 +100,7 @@ async function getAccessToken()
 
     var last_user_message = "";
 
-function VerifyBot(props)
+function AssistorBot(props)
 {
     const navigate = useNavigate();
 
@@ -114,10 +114,10 @@ function VerifyBot(props)
     const inputFile = useRef(null) 
     const chatscroll = useRef(null)
 
-    const introduction = "Hi, I'm VerifyBot. A chat bot designed to assist individuals in accessing Ennoventure's Verify API to determine the authenticity of a given product.";
-    const tutorial = "You can follow the tutorial on the left to verify the authenticity of a product.";
-    const begin_verify = "Click the button below to begin verification";
-    const error_msg = "I'm sorry, but I wasn't able to handle the request. Please try again."
+    const introduction = "";
+    const tutorial = "";
+    const begin_verify = "";
+    const error_msg = ""
 
 
     //Speech Synthesis
@@ -164,54 +164,6 @@ function VerifyBot(props)
       );
 
 
-
-      async function checkResult()
-      {
-  
-          fetch( "https://client-sandbox-verification-api.pre.enncrypto.com/verify/session-result?" + new URLSearchParams({"session_id" : session_id}) , {
-              headers: { "Authorization" : "Bearer " + access_token,
-                          "Content-Type" : "application/json" },
-              }).then(
-                  async (response) => {
-                      const res = await response.json();
-  
-                      if( res.status === "COMPLETED" )
-                      {
-                          console.log("Done!");
-                          console.log(res);
-                          
-                          var mess = ""
-
-                          if( res.result === "GENUINE" )
-                          {
-                            mess = "Good news! The product is genuine!";
-                          }
-                          else if( res.result === "CANNOT_CONFIRM" )
-                          {
-                            mess = "Unfortunately, I'm unable to confirm the authenticity of this product.";
-                          }
-                          else if( res.result === "POTENTIAL_FAKE" )
-                          {
-                            mess = "Unfortunately, The product might be a fake.";
-                          }
-                          else
-                          {
-                            mess = "I'm sorry, but the image doesn't seem to be clear. Please try again.";
-                          }
-
-                          mess = await translateGPT(mess);
-
-                          setMessages( arr => [ { source : "Bot" , message : mess } , ...arr ] )
-                      }
-                      else{
-                          setTimeout(() => {
-                              checkResult();
-                          }, 1000);
-                      }
-                  }
-              )
-          
-          }
 
           const getLanguageGPT = async (message) => {
             var prompt = `
@@ -323,95 +275,6 @@ function VerifyBot(props)
           }
         
 
-    async function handleFileSelected(event)
-    {
-        console.log("New file :");
-        console.log(event.target.files[0]);
-
-        var file = event.target.files[0];
-
-        var mess = await translateGPT("Uploading image...")
-        setMessages( arr => [ { source : "Bot" , message : mess } , ...arr ] )
-
-        const storageRef = ref(storage, file.name);
-
-        // 'file' comes from the Blob or File API
-        uploadBytes(storageRef, file).then( async (snapshot) => {
-        console.log('Uploaded a blob or file!');
-        console.log(storageRef.fullPath);
-
-        var image_url = url_start + storageRef.fullPath.replaceAll( " " , "%20" ) + url_end;
-        console.log( "Image URL : " + image_url );
-
-        setMessages( arr => [ { source : "User" , image : image_url } , ...arr ] )
-        
-        mess = await translateGPT("Starting verification process")
-        setMessages( arr => [ { source : "Bot" , message : mess } , ...arr ] )
-
-
-        fetch( "https://client-sandbox-verification-api.pre.enncrypto.com/verify/start-session" , {
-            method: "POST",
-            headers: { "Authorization" : "Bearer " + access_token,
-                        "Content-Type" : "application/json" },
-            body : JSON.stringify({
-                "product_config_id": 8,
-                "session_metadata": { },
-                "geo_location": 
-                {
-                    "lat": 0,
-                    "long": 0
-                }
-            })
-        } ).then( async (response) => {
-            const content = await response.json();
-            session_id = content.session_id;
-
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                console.log(console.log("Finished Reading"));
-                console.log(e.target.result)
-
-                const formData = new FormData()
-                formData.append('input_image', file)
-
-                fetch("https://client-sandbox-verification-api.pre.enncrypto.com/verify/upload-image?" + new URLSearchParams({
-                    "session_id" : session_id,
-                }) , {
-                    method: "POST",
-                    headers: { Authorization : "Bearer " + access_token,
-                                "content" :  { "application/json" : { boundary : "*****696969420420420*****" } }
-                            },
-                    body : formData
-                }).then(
-                    async (response) => {
-                        console.log("Done Uploading Image to API")
-
-                        mess = await translateGPT("Uploaded to Verify API. Awaiting response.")
-                        setMessages( arr => [ { source : "Bot" , message : mess } , ...arr ] )                
-
-                        var res = await response.json();
-                        console.log(res);
-
-                        if( res.msg === "OK" )
-                        {
-                            setTimeout( () => {checkResult();} , 1000 );
-                        }
-
-                    }
-                );
-
-            };
-            reader.onerror = function(e) {
-                console.log("Unable to read image");
-            };
-	        reader.readAsBinaryString(file);
-
-
-        } );
-
-        });
-
-    }
 
     function handleClick(event)
     {
@@ -545,7 +408,7 @@ function VerifyBot(props)
 
 }
 
-export default VerifyBot;
+export default AssistorBot;
 
 
 

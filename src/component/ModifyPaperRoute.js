@@ -1,7 +1,7 @@
 import {React, useState} from "react";
 import "./home.css"
 import "./dashboard.css"
-import VerifyBot from "./verify-bot";
+import AssistorBot from "./assistor-bot";
 import "./Server.js";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, onValue } from "firebase/database";
@@ -238,7 +238,7 @@ function ModifyPaperRoute()
                             <div key={key+value} className={ value%2 == 0 ? "Tag_Unset" : "Tag_Set" } onClick={ () => { updateValue(key) } }>{key}</div>)
                     } )}
                 </div>
-                <VerifyBot updateTags={updateTags} />
+                <AssistorBot updateTags={updateTags} />
                 <div className="Button SmallButton UnsetPosition" onClick={ acceptPreferences } ><h1>Confirm Interests</h1></div>
                 
             </div>
