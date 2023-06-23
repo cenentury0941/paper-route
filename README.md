@@ -1,12 +1,19 @@
-# Getting Started with Create React App
+# PaperRoute
+Paper route is a simple webservice which accepts the users email ID as well as their interests and sends SMTP based mail updates to the user of relevant research papers published to Springer or IEEE on a regular basis.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## PaperRoute can be used in a simple 3 step process
+- Provide us your email ID
+- Determine your interests
+- register your PaperRoute
 
-## Available Scripts
+## PaperRoute makes use of an openAI based assistive chatbot which will help users in picking the relevant tags as per their interests if they so choose
+![alt text](https://github.com/cenentury0941/paper-route/blob/main/src/component/images/bot_bg.png)
 
-In the project directory, you can run:
+## PaperRoute is a ReactJS based Application and runs entirely contained in the browser
+![alt text]( https://github.com/cenentury0941/paper-route/blob/main/src/component/images/hld_bg.png )
 
-### `npm start`
+ --------------------- 
+## Boilerplate ReactJS instructions follow.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
