@@ -92,21 +92,6 @@
     background-image: url("./images/bot_bg.png");
 }
 
-.Invoke{    
-    background-image: url("./images/Invoke.png");
-    background-size: contain;
-}
-
-.Provide{    
-    background-image: url("./images/Provide.png");
-    background-size: contain;
-}
-
-.Verify{    
-    background-image: url("./images/Verify.png");
-    background-size: contain;
-}
-
 .Reverse{
     background-image: linear-gradient( to right , #d18cff , #822bce  ); 
 }
@@ -121,63 +106,7 @@
     background-size: cover;
 }
 
-.Tutorial{
-    background-image: url("./images/Tutorial.png");
-    background-size: contain;
-}
 
-.Feature1{
-    background-image: url("./images/feature1.png");
-    background-size: contain;
-}
-
-.Feature2{
-    background-image: url("./images/feature2.png");
-    background-size: contain;
-}
-
-.Feature3{
-    background-image: url("./images/feature3.png");
-    background-size: contain;
-}
-
-.Tutorial2{
-    background-image: url("./images/Tutorial02.png");
-    background-size: contain;
-}
-
-.Working{
-    background-image: url("./images/Working.png");
-    background-size: contain;
-}
-
-
-.Install{
-    background-image: url("./images/InstallBG.png");
-    background-position: top;
-    background-size: cover;
-}
-
-.CheckOutMessage{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 3vh;
-    right: 2vw;
-    width: 10vw;
-    min-width: 9cm;
-    aspect-ratio: 0.6;
-    border-radius: 3vh;
-    transform-origin: center;
-    border: 5px dashed #822bce;
-    background-image: url("./images/check.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    transform: scale(0.85);
-    background-color: white;
-}
 
 .Button{    
     display: flex;

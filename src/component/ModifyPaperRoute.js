@@ -120,21 +120,29 @@ function ModifyPaperRoute()
 
 
     const updateTags = (jsonData) => {
-        var tags_data = JSON.parse(jsonData)
-        console.log("Json Data : " + tags_data);
-        for( var param in tags_data )
+        //var tags_data = JSON.parse(jsonData)
+        //console.log("Json Data : " + tags_data);
+        // for( var param in tags_data )
+        // {
+        //     console.log( "PARAMETER : " + tags_data[param] );
+        //     for( var tag of tags_data[param] )
+        //     {
+        //         if(tags[tag])
+        //         {
+        //             tags[tag] = 1;
+        //             console.log( "SET : " + tag )
+        //         }
+        //     }
+        // }
+
+        for( var key in tags )
         {
-            console.log( "PARAMETER : " + tags_data[param] );
-            for( var tag of tags_data[param] )
+            if( jsonData.includes(key) )
             {
-                if(tags[tag])
-                {
-                    tags[tag] = 1;
-                    console.log( "SET : " + tag )
-                }
+                tags[key] = 1;
             }
         }
-        
+
         setUiUpdate(uiUpdate+1);
     }
 

@@ -360,7 +360,7 @@ function AssistorBot(props)
     return (
 
         <div className="VerifyBot">
-        <input type='file' id='file' onChange={handleFileSelected} ref={inputFile} style={{display: 'none'}}/>
+        <input type='file' id='file' onChange={()=>{}} ref={inputFile} style={{display: 'none'}}/>
         <div className={"BotBody " + (showBot ? "Reveal" : "Hide")}>
             <div className="BotContent">
                 <div className="BotHeaderSection">

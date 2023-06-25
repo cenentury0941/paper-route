@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import VerifyBot from './component/verify-bot';
 import Home from "./component/home";
 import DashBoard from './component/dashboard';
 import CreatePaperRoute from './component/CreatePaperRoute';
