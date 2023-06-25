@@ -5,6 +5,10 @@
 ## Hosting Link : https://cenentury0941.github.io/paperroute/
 Paper route is a simple webservice which accepts the users email ID as well as their interests and sends SMTP based mail updates to the user of relevant research papers published to Springer or IEEE on a regular basis.
 
+## Local hosting instructions
+- clone the repo using ```git clone "https://github.com/cenentury0941/paper-route.git"```
+- Determine your interests
+- register your PaperRoute
 
 ## PaperRoute can be used in a simple 3 step process
 - Provide us your email ID
