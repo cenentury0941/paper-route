@@ -6,9 +6,18 @@
 Paper route is a simple webservice which accepts the users email ID as well as their interests and sends SMTP based mail updates to the user of relevant research papers published to Springer or IEEE on a regular basis.
 
 ## Local hosting instructions
-- clone the repo using ```git clone "https://github.com/cenentury0941/paper-route.git"```
-- Determine your interests
-- register your PaperRoute
+- Clone the repo using ```git clone "https://github.com/cenentury0941/paper-route.git"```
+![alt text](https://github.com/cenentury0941/paper-route/blob/main/src/component/images/clone.png)
+
+- Change directory to project directory using ```cd paper-route```
+- Install dependencies using ```npm install```
+![alt text](https://github.com/cenentury0941/paper-route/blob/main/src/component/images/cd_install.png)
+
+- Run the React App using ```npm start```
+![alt text](https://github.com/cenentury0941/paper-route/blob/main/src/component/images/start.png)
+
+- The App can be accessed at ```localhost:3000/paper-route```
+![alt text](https://github.com/cenentury0941/paper-route/blob/main/src/component/images/url.png)
 
 ## PaperRoute can be used in a simple 3 step process
 - Provide us your email ID
