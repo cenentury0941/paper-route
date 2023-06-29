@@ -96,7 +96,7 @@ var db_data = undefined;
 onValue(users, (snapshot) => {
         const data = snapshot.val();
         db_data = data;
-        user_dat = data[email_ref.replace(".","_")];
+        user_dat = data[email_ref.replaceAll(".","_")];
         console.log(user_dat);  
         complete = true;  
     });
@@ -184,7 +184,7 @@ function CreatePaperRoute()
             return;
         }
 
-        if( db_data[ email.replace(".","_") ] ){
+        if( db_data[ email.replaceAll(".","_") ] ){
             setShowError(true)
         }
         else{
@@ -200,7 +200,7 @@ function CreatePaperRoute()
         email_ref = email;
         setLoading(true);
         complete = false;
-        writeUserData( email.replace("." , "_") , tags );
+        writeUserData( email.replaceAll("." , "_") , tags );
         setTimeout( updateDBCheck , 1000 );
         setStage(3);
     }

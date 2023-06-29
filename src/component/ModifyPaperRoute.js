@@ -92,7 +92,7 @@ const users = ref(db, 'users/');
 onValue(users, (snapshot) => {
         const data = snapshot.val();
         db_snap = data;
-        user_dat = data[email_ref.replace(".","_")];
+        user_dat = data[email_ref.replaceAll(".","_")];
         console.log(user_dat);  
         complete = true;  
     });
@@ -179,10 +179,10 @@ function ModifyPaperRoute()
         {
             return;
         }
-        if( db_snap[ email.replace(".","_") ] )
+        if( db_snap[ email.replaceAll(".","_") ] )
         {
             setStage(1);
-            tags = db_snap[ email.replace(".","_") ];
+            tags = db_snap[ email.replaceAll(".","_") ];
             setUiUpdate( uiUpdate+1 );
         }
         else
@@ -199,7 +199,7 @@ function ModifyPaperRoute()
         email_ref = email;
         setLoading(true);
         complete = false;
-        writeUserData( email.replace("." , "_") , tags );
+        writeUserData( email.replaceAll("." , "_") , tags );
         set(ref(db, 'users/' + "NULL"), "Temp"+Math.random());
         setTimeout( updateDBCheck , 1000 );
         setStage(3);
